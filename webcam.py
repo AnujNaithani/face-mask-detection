@@ -32,11 +32,18 @@ while True:
     else:
         label = class_names[0]
 
-    predict = prediction[0][0]
+    color = (0, 255, 0) if label == "with_mask" else (0, 0, 255)
 
-    cv.putText(frame,f"{label}  {predict}", (20,50),
-               cv.FONT_HERSHEY_SIMPLEX,
-               1, (0,255,0), 2)
+    cv.putText(
+        frame,
+        label,
+        (30, 50),
+        cv.FONT_HERSHEY_SIMPLEX,
+        1,
+        color,
+        2,
+        cv.LINE_AA
+    )
 
     cv.imshow("Face Mask Detection", frame)
 
